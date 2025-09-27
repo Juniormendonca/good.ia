@@ -2,7 +2,7 @@
 
 Protótipo em Python de um aplicativo chamado **TriboFit**, inspirado nas telas e no cronograma fornecidos. O objetivo é oferecer uma experiência de terminal que represente as principais jornadas do produto: login, definição de objetivos, escolha de avatar, acompanhamento de treinos, feed social, comunidades, ranking e loja.
 
-## Como executar
+## Como executar a CLI
 
 ```bash
 python -m tribofit.cli
@@ -10,10 +10,21 @@ python -m tribofit.cli
 
 O script apresenta um menu interativo baseado nas seções planejadas para o app móvel. É possível definir objetivo, escolher avatar, registrar treinos concluídos e visualizar os conteúdos simulados.
 
+## Como visualizar em HTML
+
+Para experimentar uma versão navegável em HTML, execute:
+
+```bash
+python -m tribofit.web
+```
+
+O servidor irá disponibilizar a interface em `http://127.0.0.1:8000`, exibindo as mesmas jornadas simuladas com um layout inspirado no design original.
+
 ## Estrutura do projeto
 
 - `tribofit/app.py`: contém o núcleo da lógica do aplicativo, modelos de dados e geradores de telas.
 - `tribofit/cli.py`: expõe a interface de linha de comando que percorre as principais telas do app.
+- `tribofit/web.py`: servidor HTTP simples que renderiza o protótipo em HTML.
 - `exemplo.py`: função de saudação simples mantida do repositório original.
 
 ## Próximos passos sugeridos

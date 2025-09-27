@@ -1,5 +1,12 @@
 """Unit tests for the TriboFit application core."""
-from tribofit.app import TriboFitApp, build_demo_app
+
+from pathlib import Path
+import sys
+
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+
+from tribofit.app import TriboFitApp, build_demo_app  # noqa: E402
+from tribofit.web import render_homepage  # noqa: E402
 
 
 def test_login_and_welcome_screen():
@@ -28,6 +35,16 @@ def test_complete_workout_updates_summary():
     assert "Força" in summary
     assert "Alpha" in summary
     assert "Agachamento" in summary
+
+
+def test_render_homepage_contains_sections():
+    app = build_demo_app()
+    html = render_homepage(app)
+
+    assert "<h2>Objetivos</h2>" in html
+    assert "<h2>Treino do Dia</h2>" in html
+    assert "Loja" in html
+    assert "@triber" in html
 
 
 def test_invalid_options_raise_errors():
